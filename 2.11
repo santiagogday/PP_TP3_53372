@@ -1,0 +1,12 @@
+rotarIzq(L,0,L).
+rotarIzq([Frente|Cola],N,P):-
+   N>0,
+   N1 is N-1,
+   concatenar(Cola,[Frente],P),
+   rotarIzq(Cola,N1,P)
+   
+ 
+concatenar([],L,L).
+concatenar([Frente|Cola],L,[FrenteParcial|ColaParcial]):-
+   concatenar(cola,L,ColaParcial).
+   

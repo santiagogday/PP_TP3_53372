@@ -1,0 +1,10 @@
+eliminar([], _, []).
+
+
+eliminar([E|Cola], E, R) :-
+    eliminar(Cola, E, R).
+
+
+eliminar([Frente|Cola], E, [Frente|ColaSinE]) :-
+    Frente \= E,
+    eliminar(Cola, E, ColaSinE).

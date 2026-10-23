@@ -1,0 +1,33 @@
+persona(juan, '1111-2222', m, 25).
+persona(maria, '3333-4444', f, 24).
+persona(carlos, '5555-6666', m, 19).
+persona(lucia, '7777-8888', f, 30).
+persona(pedro, '9999-0000', m, 40).
+
+casado(juan, maria, '1111-2222').
+casado(maria, juan, '3333-4444').
+casado(pedro, lucia, '9999-0000').
+
+visita(maria, carlos).
+visita(lucia, juan).
+
+
+
+buscarPersona(Nombre):-
+   persona(Nombre,_,_,_).
+
+mostrarMujeres(Nombre):-
+   persona(Nombre,_,f,_).
+
+mostrarVaronesMayores21(Nombre):-
+   persona(Nombre,_,m,Edad),
+   Edad > 21.
+
+casadoConTelefono(NombreHombre,NombreMujer,Telefono):-
+   casado(NombreHombre,NombreMujer,Telefono).
+
+mostrarCasados(NombreHombre,NombreMujer):-
+   casado(NombreHombre,NombreMujer,_).
+
+%Indicar para que sirve: c(X) if casado(X, Y), visita(Y, Z), persona(Z, _, m).
+%Esta regla devuelve o identifica a toda persona X cuyo cónyuge visita a un varón.

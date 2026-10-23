@@ -1,0 +1,50 @@
+distancia(mendoza, san_juan, 160).
+distancia(mendoza, san_luis, 280).
+distancia(san_juan, cordoba, 480).
+distancia(san_luis, bs_as, 710).
+distancia(san_luis, cordoba, 350).
+distancia(cordoba, bs_as, 540).
+distancia(cordoba, santa_fe, 280).
+distancia(cordoba, misiones, 950).
+distancia(misiones, santa_fe, 570).
+
+
+existe_camino(Origen, Destino) :-
+   distancia(Origen, Destino, _).
+
+existe_camino(Origen, Destino) :-
+   distancia(Origen, Intermedia, _),
+   existe_camino(Intermedia, Destino).
+
+
+
+distancia_total(Origen,Destino,D):-
+   distancia(Origen,Destino,D).
+
+distancia_total(Origen,Destino,D):-
+   distancia(Origen,Intermedia,D1),
+   distancia_total(Intermedia,Destino,D2),
+   D is D1+D2.
+
+
+
+mostrar_camino(Origen, Destino) :-
+    write(Origen),
+    recorrer(Origen, Destino).
+
+recorrer(Origen, Destino) :-
+    distancia(Origen, Destino, _),
+    write(' -> '),
+    write(Destino),
+    nl.
+
+recorrer(Origen, Destino) :-
+    distancia(Origen, Intermedia, _),
+    write(' -> '),
+    write(Intermedia),
+    recorrer(Intermedia, Destino).
+
+
+
+
+

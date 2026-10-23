@@ -1,0 +1,11 @@
+intersec([],_,[]).
+
+intersec([Frente|Cola], L2, [Frente|Resto]) :- 
+   member(Frente, L2), 
+   !, 
+   intersec(Cola, L2, Resto).
+
+
+intersec([_|Cola], L2, Resto):- 
+   intersec(Cola, L2, Resto).
+

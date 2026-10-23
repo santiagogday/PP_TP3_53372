@@ -1,0 +1,7 @@
+eliminar([E|Resto], E, Resto).
+
+
+eliminar([X|Resto], E, [X|RestoSinE]) :-
+    X \= E,
+    eliminar(Resto, E, RestoSinE).
+

@@ -1,0 +1,8 @@
+inversa([], []).
+inversa([X|L], I) :-
+    inversa(L, R),
+    concatenar(R, [X], I).
+
+concatenar([], L, L).
+concatenar([X|L1], L2, [X|R]) :-
+    concatenar(L1, L2, R).

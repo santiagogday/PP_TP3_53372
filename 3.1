@@ -1,0 +1,41 @@
+persona(r, 111, 80).
+persona(a, 222, 55).
+persona(b, 333, 53).
+persona(c, 444, 50).
+persona(d, 555, 30).
+persona(e, 666, 28).
+persona(f, 777, 25).
+persona(g, 888, 22).
+persona(h, 999, 5).
+persona(i, 101, 3).
+persona(j, 102, 2).
+persona(k, 103, 1).
+
+hijo(a,r).
+hijo(b,r).
+hijo(c,r).
+hijo(d,a).
+hijo(e,a).
+hijo(f,b).
+hijo(g,b).
+hijo(h,e).
+hijo(i,f).
+hijo(j,f).
+hijo(k,g).
+
+descendiente(Padre, persona(NomHijo, DniHijo, EdadHijo)) :-
+    hijo(NomHijo, Padre),
+    persona(NomHijo, DniHijo, EdadHijo).
+
+descendiente(Padre, Desc) :-
+    hijo(Hijo, Padre),
+    descendiente(Hijo, Desc).
+
+
+ascendiente(Hijo, persona(NomPadre, DniPadre, EdadPadre)) :-
+    hijo(Hijo, NomPadre),
+    persona(NomPadre, DniPadre, EdadPadre).
+
+ascendiente(Hijo, Asc) :-
+    hijo(Hijo, Padre),
+    ascendiente(Padre, Asc).

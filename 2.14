@@ -1,0 +1,15 @@
+insOrden(Elemento, [], [Elemento]).
+
+insOrden(Elemento, [Frente|Cola], [Elemento, Frente|Cola]) :- 
+   Elemento =< Frente.
+
+insOrden(Elemento, [Frente|Cola], [Frente|ResultadoParcial]) :- 
+   Elemento > Frente, 
+   insOrden(Elemento, Cola, ResultadoParcial).
+
+
+ordenada([], []).
+
+ordenada([Cabeza|Cola], ListaFinal) :- 
+   ordenada(Cola, ColaOrdenada),
+   insOrden(Cabeza, ColaOrdenada, ListaFinal). 

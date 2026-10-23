@@ -1,0 +1,4 @@
+parejas([],[],[]).
+
+parejas([Frente1|Cola1],[Frente2|Cola2],[(Frente1,Frente2)|Resto]):-
+   parejas(Cola1,Cola2,Resto).

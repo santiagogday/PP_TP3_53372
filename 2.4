@@ -1,0 +1,5 @@
+cantidad([],0).
+
+cantidad([_|Cola],N):-
+   cantidad(Cola,Resto),
+   N is Resto +1.

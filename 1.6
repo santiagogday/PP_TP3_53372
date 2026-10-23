@@ -1,0 +1,14 @@
+sintoma(juan, fiebre).
+sintoma(juan, tos).
+sintoma(maria, dolor_cabeza).
+sintoma(pedro, estornudos).
+
+
+enfermedad(gripe, fiebre).
+enfermedad(gripe, tos).
+enfermedad(migrana, dolor_cabeza).
+enfermedad(alergia, estornudos).
+
+diagnostico(P,S,E):-
+   sintoma(P,S),
+   enfermedad(E,S).

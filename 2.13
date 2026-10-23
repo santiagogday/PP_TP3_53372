@@ -1,0 +1,8 @@
+insOrden(Elemento,[],[Elemento]).
+
+insOrden(Elemento,[Frente|Cola],[Frente|ResultadoParcial]):-
+   Elemento > Frente,
+   insOrden(Elemento,Cola,ResultadoParcial).
+
+insOrden(Elemento, [Frente|Cola], [Elemento, Frente|Cola]) :- 
+   Elemento =< Frente.

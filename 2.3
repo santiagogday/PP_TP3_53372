@@ -1,0 +1,6 @@
+suma(0, []).
+
+
+suma(S, [X | Cola]) :-
+    suma(SumaCola, Cola),
+    S is X + SumaCola.

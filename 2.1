@@ -1,0 +1,16 @@
+predecesor([],[]).
+
+
+predecesor([F|Q],[F|S]):-
+   predecesor_aux(Q,F,S).
+
+predecesor_aux([],_,[]).
+
+predecesor_aux([F|Q],P,[F|S]):-
+   F >= P,
+   predecesor_aux(Q, F, S).
+
+
+predecesor_aux([F|Q],P,S):-
+   F<P, 
+   predecesor_aux(Q,F,S).

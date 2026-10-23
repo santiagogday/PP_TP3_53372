@@ -1,0 +1,6 @@
+insertarEn(Elemento, L, 1, [Elemento|L]).
+
+insertarEn(Elemento, [Frente|Cola], Posicion, [Frente|RestoParcial]) :-
+    Posicion > 1,
+    P1 is Posicion - 1,
+    insertarEn(Elemento, Cola, P1, RestoParcial).
